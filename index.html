@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: The Future of Wildlife Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!--
+    Plan Summary:
+    The infographic visualizes the "Wildlife Management & Marketplace Platform" summary.
+    It follows a narrative structure:
+    1. Introduction: The core vision and value proposition.
+    2. Core Pillars Overview: Introducing the four main functional areas.
+    3. Pillar 1 Deep Dive: Animal Management features.
+    4. Pillar 2 Deep Dive: Farm & Resource Management.
+    5. Pillar 3 Deep Dive: The Integrated Marketplace.
+    6. Pillar 4 Deep Dive: Operations & Analytics.
+    7. Technology & UX: Highlighting the modern stack and user-centric philosophy.
+
+    Visualization Choices Summary (NO SVG/MERMAID USED):
+    - Vision: Single Big Number (HTML text) - To inform and grab attention. Justification: High impact for a key message.
+    - Value Prop: Donut Chart (Chart.js) - To compare the platform's dual focus. Justification: Simple, clear representation of composition.
+    - Animal Attributes: Radar Chart (Chart.js) - To compare multiple metrics for one entity. Justification: Ideal for showcasing a multi-faceted profile like a "prime specimen".
+    - Camp Capacity: Stacked Bar Chart (Chart.js) - To compare composition within categories. Justification: Perfect for showing used vs. available capacity.
+    - Marketplace Flow: Flow Chart (HTML/Tailwind CSS) - To organize a process. Justification: Necessary alternative to SVG/Mermaid to clearly illustrate a step-by-step process.
+    - Profitability Trend: Line Chart (Chart.js) - To show change over time. Justification: Standard and best practice for time-series data.
+    - Age vs. Value: Scatter Plot (Plotly.js, Canvas Rendered) - To show relationships between variables. Justification: Best for revealing correlations; Plotly handles this well on a canvas.
+    - All other elements use structured HTML/CSS with Tailwind and Unicode characters for icons.
+
+    Color Palette Chosen: Brilliant Blues (#00449E, #005CB9, #4285F4, #AECBFA, #E8F0FE) with dark text for contrast.
+
+    Confirmation: NEITHER Mermaid JS NOR SVG were used anywhere in this output. All charts are rendered on <canvas> elements. Diagrams are built with structured HTML and Tailwind CSS.
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #E8F0FE;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flow-line {
+            height: 2px;
+            width: 100%;
+            background-color: #AECBFA;
+        }
+        .flow-line-v {
+            width: 2px;
+            height: 2rem;
+            background-color: #AECBFA;
+        }
+        .flow-arrow::after {
+            content: '▼';
+            color: #4285F4;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto max-w-7xl p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-[#00449E] mb-2">The Digital Transformation of Wildlife Management</h1>
+            <p class="text-lg text-gray-600">A unified platform to manage, grow, and trade valuable animal assets.</p>
+        </header>
+
+        <main class="space-y-12">
+
+            <section id="vision">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-lg shadow-lg p-8 text-center">
+                        <h2 class="text-2xl font-bold text-[#005CB9] mb-4">A True 360° Solution</h2>
+                        <p class="text-8xl font-black text-[#4285F4]">360°</p>
+                        <p class="mt-4 text-gray-600">This single number represents our philosophy: a complete, all-encompassing view of your operations, from the individual animal's DNA to its market value, all in one place.</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center mb-2 text-[#005CB9]">Platform Value Proposition</h3>
+                        <p class="text-center text-gray-600 mb-4">The platform is uniquely designed to bridge the gap between day-to-day work and commercial success. It's not just about managing animals; it's about optimizing their value.</p>
+                        <div class="chart-container h-64 md:h-80">
+                            <canvas id="valuePropChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pillars" class="text-center">
+                <h2 class="text-3xl font-bold text-[#00449E] mb-2">Four Pillars of a Modern Farm</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mb-8">Our platform is built on four interconnected pillars, creating a robust ecosystem for comprehensive management and growth.</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                    <div class="bg-[#4285F4] text-white rounded-lg shadow-md p-6">
+                        <span class="text-4xl">🧬</span>
+                        <h3 class="font-bold mt-2">Animal Management</h3>
+                    </div>
+                    <div class="bg-[#005CB9] text-white rounded-lg shadow-md p-6">
+                        <span class="text-4xl">🏞️</span>
+                        <h3 class="font-bold mt-2">Farm & Resources</h3>
+                    </div>
+                    <div class="bg-[#00449E] text-white rounded-lg shadow-md p-6">
+                        <span class="text-4xl">📈</span>
+                        <h3 class="font-bold mt-2">Marketplace & Sales</h3>
+                    </div>
+                    <div class="bg-[#AECBFA] text-gray-800 rounded-lg shadow-md p-6">
+                        <span class="text-4xl">📊</span>
+                        <h3 class="font-bold mt-2">Analytics & Ops</h3>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="animal-management">
+                 <h2 class="text-3xl font-bold text-[#00449E] mb-2 text-center">Pillar 1: Know Your Assets</h2>
+                 <p class="max-w-3xl mx-auto text-gray-600 mb-8 text-center">Go beyond simple tracking. Each animal becomes a detailed, living profile, providing deep insights for breeding and health management.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center mb-2 text-[#005CB9]">Prime Specimen Profile</h3>
+                        <p class="text-center text-gray-600 mb-4">This radar chart visualizes the key metrics of a high-value animal, allowing for quick comparison and assessment of its breeding potential and overall quality.</p>
+                        <div class="chart-container">
+                            <canvas id="animalAttributesChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-center mb-4 text-[#005CB9]">Comprehensive Data Tracking</h3>
+                        <p class="text-center text-gray-600 mb-6">Our system captures every critical data point throughout an animal's lifecycle, ensuring a complete and transferable record.</p>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-center"><span class="text-2xl mr-4 text-[#4285F4]">👤</span><div><span class="font-bold">Individual Profiles:</span> Photos, notes, attributes.</div></li>
+                            <li class="flex items-center"><span class="text-2xl mr-4 text-[#4285F4]">🌳</span><div><span class="font-bold">Pedigree & Family Tree:</span> Visual bloodline tracking.</div></li>
+                            <li class="flex items-center"><span class="text-2xl mr-4 text-[#4285F4]">❤️</span><div><span class="font-bold">Health Records:</span> Complete medical history.</div></li>
+                            <li class="flex items-center"><span class="text-2xl mr-4 text-[#4285F4]">🏷️</span><div><span class="font-bold">Identification:</span> Tags, DNA samples, and more.</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="farm-management">
+                <h2 class="text-3xl font-bold text-[#00449E] mb-2 text-center">Pillar 2: Master Your Domain</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mb-8 text-center">Manage your physical farm with the same level of detail as your animals. Optimize space, resources, and costs with powerful visualization tools.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                     <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center mb-2 text-[#005CB9]">Camp Capacity & Utilization</h3>
+                        <p class="text-center text-gray-600 mb-4">This chart provides an at-a-glance view of how your camps are being utilized, preventing over-grazing and ensuring optimal animal distribution.</p>
+                        <div class="chart-container">
+                            <canvas id="campCapacityChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center mb-2 text-[#005CB9]">Resource Consumption Breakdown</h3>
+                        <p class="text-center text-gray-600 mb-4">Track your major operational costs. Understanding this breakdown is the first step toward analyzing and improving your farm's profitability.</p>
+                         <div class="chart-container">
+                            <canvas id="resourceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="marketplace">
+                <h2 class="text-3xl font-bold text-[#00449E] mb-2 text-center">Pillar 3: The Integrated Marketplace</h2>
+                <p class="max-w-3xl mx-auto text-gray-600 mb-8 text-center">Seamlessly transition from management to commerce. Our built-in marketplace connects you with a network of buyers, transforming your valuable assets into revenue.</p>
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-xl font-bold text-center mb-6 text-[#005CB9]">The Path from Pasture to Profit</h3>
+                    <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
+                        <div class="text-center w-full md:w-1/5">
+                            <div class="bg-[#E8F0FE] border-2 border-[#AECBFA] p-4 rounded-lg">
+                                <span class="text-4xl">📝</span>
+                                <h4 class="font-bold mt-2">Profile Complete</h4>
+                            </div>
+                        </div>
+                        <div class="flex-grow w-full md:w-auto flex items-center justify-center"><div class="hidden md:block flow-line"></div><div class="md:hidden flow-line-v flow-arrow"></div></div>
+                        <div class="text-center w-full md:w-1/5">
+                            <div class="bg-[#E8F0FE] border-2 border-[#AECBFA] p-4 rounded-lg">
+                                <span class="text-4xl">🛒</span>
+                                <h4 class="font-bold mt-2">List on Market</h4>
+                            </div>
+                        </div>
+                        <div class="flex-grow w-full md:w-auto flex items-center justify-center"><div class="hidden md:block flow-line"></div><div class="md:hidden flow-line-v flow-arrow"></div></div>
+                        <div class="text-center w-full md:w-1/5">
+                            <div class="bg-[#E8F0FE] border-2 border-[#AECBFA] p-4 rounded-lg">
+                                <span class="text-4xl">⚖️</span>
+                                <h4 class="font-bold mt-2">Bidding/Auction</h4>
+                            </div>
+                        </div>
+                        <div class="flex-grow w-full md:w-auto flex items-center justify-center"><div class="hidden md:block flow-line"></div><div class="md:hidden flow-line-v flow-arrow"></div></div>
+                        <div class="text-center w-full md:w-1/5">
+                            <div class="bg-[#E8F0FE] border-2 border-[#AECBFA] p-4 rounded-lg">
+                                <span class="text-4xl">🤝</span>
+                                <h4 class="font-bold mt-2">Sale Confirmed</h4>
+                            </div>
+                        </div>
+                         <div class="flex-grow w-full md:w-auto flex items-center justify-center"><div class="hidden md:block flow-line"></div><div class="md:hidden flow-line-v flow-arrow"></div></div>
+                        <div class="text-center w-full md:w-1/5">
+                           <div class="bg-green-100 border-2 border-green-300 p-4 rounded-lg">
+                                <span class="text-4xl">📄</span>
+                                <h4 class="font-bold mt-2">Passport Transferred</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="analytics">
+                 <h2 class="text-3xl font-bold text-[#00449E] mb-2 text-center">Pillar 4: Data-Driven Operations</h2>
+                 <p class="max-w-3xl mx-auto text-gray-600 mb-8 text-center">Leverage your data to make smarter decisions. From task management to financial forecasting, our tools provide the insights you need to optimize every aspect of your business.</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center mb-2 text-[#005CB9]">Profitability Trend Analysis</h3>
+                        <p class="text-center text-gray-600 mb-4">Track your costs against your herd's market value over time. This line chart is essential for understanding your financial health and identifying key trends.</p>
+                        <div class="chart-container">
+                            <canvas id="profitabilityChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center mb-2 text-[#005CB9]">Correlation: Age vs. Market Value</h3>
+                        <p class="text-center text-gray-600 mb-4">This scatter plot reveals the relationship between an animal's age and its value, helping you identify the peak time to sell for maximum return.</p>
+                        <div class="chart-container" id="ageValueScatter">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="tech" class="text-center">
+                <h2 class="text-3xl font-bold text-[#00449E] mb-2">Built on a Modern Foundation</h2>
+                 <p class="max-w-3xl mx-auto text-gray-600 mb-8">A robust and scalable technology stack ensures a reliable, fast, and future-proof platform for your business, accessible wherever you are.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <span class="text-4xl">⚙️</span>
+                        <h3 class="font-bold text-xl mt-2 text-[#005CB9]">ASP.NET Core</h3>
+                        <p class="text-gray-600">Secure & Scalable Backend</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <span class="text-4xl">💻</span>
+                        <h3 class="font-bold text-xl mt-2 text-[#005CB9]">Angular</h3>
+                        <p class="text-gray-600">Powerful Web Application</p>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <span class="text-4xl">📱</span>
+                        <h3 class="font-bold text-xl mt-2 text-[#005CB9]">Flutter</h3>
+                        <p class="text-gray-600">Cross-Platform Mobile App</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="text-center mt-12 pt-8 border-t border-[#AECBFA]">
+            <p class="text-gray-600">&copy; 2025 Wildlife Management Solutions. Visualizing the future of farming.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const brilliantBlues = {
+            darkest: '#00449E',
+            dark: '#005CB9',
+            medium: '#4285F4',
+            light: '#AECBFA',
+            lightest: '#E8F0FE',
+            textColor: '#374151'
+        };
+
+        const wrapLabel = (label, maxWidth = 16) => {
+            if (label.length <= maxWidth) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + ' ' + word).trim().length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            }
+            if (currentLine) {
+                lines.push(currentLine.trim());
+            }
+            return lines;
+        };
+        
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+
+        const defaultChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: brilliantBlues.textColor
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    ticks: { color: brilliantBlues.textColor },
+                    grid: { color: '#e5e7eb' }
+                },
+                x: {
+                    ticks: { color: brilliantBlues.textColor },
+                    grid: { display: false }
+                }
+            }
+        };
+
+        new Chart(document.getElementById('valuePropChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Operational Management', 'Commercial Activity'],
+                datasets: [{
+                    label: 'Platform Focus',
+                    data: [70, 30],
+                    backgroundColor: [brilliantBlues.dark, brilliantBlues.medium],
+                    borderColor: brilliantBlues.lightest,
+                    borderWidth: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: brilliantBlues.textColor } },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+        
+        new Chart(document.getElementById('animalAttributesChart'), {
+            type: 'radar',
+            data: {
+                labels: ['Genetics', 'Health', 'Size Score', 'Fertility', 'Lineage Purity'],
+                datasets: [{
+                    label: 'Prime Specimen',
+                    data: [90, 85, 95, 80, 92],
+                    fill: true,
+                    backgroundColor: 'rgba(66, 133, 244, 0.2)',
+                    borderColor: brilliantBlues.medium,
+                    pointBackgroundColor: brilliantBlues.medium,
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: brilliantBlues.medium
+                }]
+            },
+            options: {
+                 responsive: true,
+                 maintainAspectRatio: false,
+                 plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                 },
+                 scales: {
+                    r: {
+                        angleLines: { color: '#d1d5db' },
+                        grid: { color: '#e5e7eb' },
+                        pointLabels: { font: { size: 12 }, color: brilliantBlues.textColor },
+                        ticks: { backdropColor: 'transparent', color: brilliantBlues.textColor }
+                    }
+                }
+            }
+        });
+
+        new Chart(document.getElementById('campCapacityChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Savanna Camp', 'River Bend', 'North Ridge', 'West Valley'],
+                datasets: [{
+                    label: 'Current Stock',
+                    data: [45, 60, 25, 75],
+                    backgroundColor: brilliantBlues.dark,
+                }, {
+                    label: 'Available Capacity',
+                    data: [15, 5, 35, 10],
+                    backgroundColor: brilliantBlues.light,
+                }]
+            },
+            options: { ...defaultChartOptions, scales: { x: { stacked: true }, y: { stacked: true } } }
+        });
+
+        const resourceLabels = ['Veterinary Medicine', 'Nutritional Supplements', 'Standard Animal Feed', 'Fuel & Maintenance'];
+        new Chart(document.getElementById('resourceChart'), {
+            type: 'bar',
+            data: {
+                labels: resourceLabels.map(label => wrapLabel(label)),
+                datasets: [{
+                    label: 'Monthly Cost (USD)',
+                    data: [1200, 2500, 8500, 1800],
+                    backgroundColor: [brilliantBlues.darkest, brilliantBlues.dark, brilliantBlues.medium, brilliantBlues.light],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                ...defaultChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                     legend: { display: false },
+                     tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+        
+        new Chart(document.getElementById('profitabilityChart'), {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'Total Herd Value (Estimate)',
+                    data: [250, 260, 265, 280, 295, 310, 320],
+                    borderColor: brilliantBlues.medium,
+                    backgroundColor: 'rgba(66, 133, 244, 0.1)',
+                    fill: true,
+                    tension: 0.3
+                }, {
+                    label: 'Cumulative Operational Costs',
+                    data: [30, 60, 95, 120, 155, 190, 220],
+                    borderColor: '#f87171',
+                    backgroundColor: 'rgba(248, 113, 113, 0.1)',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: defaultChartOptions
+        });
+
+        const ageValueData = {
+            x: Array.from({length: 50}, () => Math.random() * 10),
+            y: Array.from({length: 50}, (v, i) => (Math.random() * 50) + (i*1.5) + (Math.sin(i/5) * 20)),
+        };
+        const ageValueLayout = {
+            xaxis: { title: 'Age (Years)' },
+            yaxis: { title: 'Market Value (x $1000)' },
+            margin: { t: 20, r: 20, b: 40, l: 50 },
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+        };
+        Plotly.newPlot('ageValueScatter', [{
+            x: ageValueData.x,
+            y: ageValueData.y,
+            mode: 'markers',
+            type: 'scattergl',
+            marker: { color: brilliantBlues.dark, size: 8 }
+        }], ageValueLayout, {responsive: true, displaylogo: false});
+
+    </script>
+</body>
+</html>
